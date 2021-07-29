@@ -75,8 +75,7 @@ const PostInput = new graphql.GraphQLInputObjectType({
         name: { type: new GraphQLNonNull(GraphQLString) },
         category: { type: new GraphQLNonNull(GraphQLList(GraphQLString)) },
         description: { type: new GraphQLNonNull(GraphQLString) },
-        content: { type: new GraphQLNonNull(GraphQLList(PostContentInput)) },
-        createdBy: { type: new GraphQLNonNull(GraphQLString) }
+        content: { type: new GraphQLNonNull(GraphQLList(PostContentInput)) }
     },
 });
 
@@ -126,9 +125,9 @@ const mutation = new graphql.GraphQLObjectType({
             args: {
                 data: { type: PostInput },
             },
-            resolve: async (parent, { data }) => {
+            resolve: async (parent, { data },context) => {
 
-                const newPost = new Posts({ ...data });
+                const newPost = new Posts({ ...data },context.email);
                 try {
                     await newPost.save();
                 } catch (err) {

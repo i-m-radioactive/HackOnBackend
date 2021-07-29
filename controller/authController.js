@@ -13,7 +13,7 @@ module.exports.login = async (req, res) => {
 //---------------------------------------------------------------------------------------------------------------------
 
 module.exports.authenticate = (req, res, next) => {
-    admin.auth().verifyIdToken(req.get('authentication') || "", true)
+    admin.auth().verifyIdToken(req.get('Authorization') || "", true)
         .then((decoded) => {
             return admin.auth().getUserByEmail(decoded.email)
         })

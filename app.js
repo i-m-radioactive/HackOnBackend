@@ -17,8 +17,8 @@ const serviceAccount = require("./admin.json");
 
 const corsOption = {
   origin: "http://localhost:3000",
-  methods: 'GET,PUT,POST,OPTIONS',
   credentials: true,
+  allowedHeaders:['Content-Type', 'Authorization']
 }
 
 admin.initializeApp({

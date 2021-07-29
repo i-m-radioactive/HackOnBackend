@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 
 const postSchema = new mongoose.Schema({
   createdBy: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.String,
     required: true,
     ref: "User"
   },
@@ -12,7 +12,7 @@ const postSchema = new mongoose.Schema({
     required: true,
     default: Date.now(),
   },
-  name: {
+  title: {
     type: mongoose.Schema.Types.String,
     required: true,
   },

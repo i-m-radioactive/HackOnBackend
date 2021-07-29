@@ -140,7 +140,7 @@ const RootQuery = new GraphQLObjectType({
                         $lookup: {
                             from: "users",
                             localField: "createdBy",
-                            foreignField: "_id",
+                            foreignField: "email",
                             as: "vlt",
                         }
                     },
