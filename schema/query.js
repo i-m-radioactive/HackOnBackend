@@ -42,7 +42,7 @@ const PostType = new GraphQLObjectType({
     name: "Post",
     fields: () => ({
         _id: { type: new GraphQLNonNull(GraphQLString) },
-        name: { type: new GraphQLNonNull(GraphQLString) },
+        title: { type: new GraphQLNonNull(GraphQLString) },
         category: { type: new GraphQLNonNull(GraphQLList(GraphQLString)) },
         description: { type: new GraphQLNonNull(GraphQLString) },
         content: { type: new GraphQLList(PostContentType) },
